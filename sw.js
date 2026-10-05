@@ -1,5 +1,5 @@
 // EnergyMap service worker — makes the app work fully offline.
-const VERSION = 'energymap-1.0.0';
+const VERSION = 'energymap-1.0.1';
 const ASSETS = [
   './',
   './index.html',

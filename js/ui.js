@@ -172,7 +172,9 @@ export function openModal({ title, body, actions = [], wide = false, onClose = n
   document.body.appendChild(back);
   modalStack.push(api);
   requestAnimationFrame(() => {
-    const target = (initialFocus && modal.querySelector(initialFocus)) || modal.querySelector('input, select, textarea, .btn.primary, button');
+    // first field, else the main action — never a secondary button like "Skip" or "Cancel"
+    const target = (initialFocus && modal.querySelector(initialFocus)) || modal.querySelector('input, select, textarea')
+      || modal.querySelector('.modal-foot .btn.primary') || modal.querySelector('button');
     target && target.focus();
   });
   return api;
